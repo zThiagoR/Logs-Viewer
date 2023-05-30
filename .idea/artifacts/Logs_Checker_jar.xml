@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Logs-Checker:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Logs_Checker_jar</output-path>
+    <root id="archive" name="Logs-Checker.jar">
+      <element id="module-output" name="Logs-Checker" />
+    </root>
+  </artifact>
+</component>
