@@ -1,6 +1,9 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="Logs-Checker:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/Logs_Checker_jar</output-path>
+    <output-path>$USER_HOME$/Desktop/Logs-Check</output-path>
+    <properties id="ant-preprocessing">
+      <options enabled="true" />
+    </properties>
     <root id="archive" name="Logs-Checker.jar">
       <element id="module-output" name="Logs-Checker" />
     </root>
