@@ -26,22 +26,28 @@ public class Main {
 
                 try {
                     String nick = promptNick();
+                    String currentPath = System.getProperty("user.dir");
+                    String logsFolderPath = currentPath + File.separator + "logs";
                     String filteredMessages = filterMessagesByNick(file, nick);
-
                     String filteredFileName = "logs-" + nick + ".txt";
-                    String filteredFilePath = getDesktopPath() + File.separator + filteredFileName;
+
+                    File logsFolder = new File(logsFolderPath);
+                    if (!logsFolder.exists()) {
+                        boolean created = logsFolder.mkdirs();
+                        if(!created) {
+                            System.out.println("Criação da pasta 'logs' falhado");
+                        }
+                    }
+
+                    String filteredFilePath = logsFolderPath + File.separator + filteredFileName;
 
                     BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(Files.newOutputStream(Paths.get(filteredFilePath)), StandardCharsets.UTF_8));
                     writer.write(filteredMessages);
                     writer.close();
 
                     System.out.println("\n\n\nArquivo filtrado criado com sucesso: " + filteredFileName);
-
-                    Thread.sleep(3000);
                 } catch (IOException e) {
                     System.err.println("Erro ao ler o arquivo: " + e.getMessage());
-                } catch (InterruptedException e) {
-                    System.err.println("Erro de interrupção: " + e.getMessage());
                 }
             } else {
                 System.out.println("Arquivo não encontrado: " + desiredFile);
